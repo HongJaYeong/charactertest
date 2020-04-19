@@ -43,12 +43,7 @@ class _TestState extends State<Test> {
           Expanded(
             flex: 1,
             child: Container(
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color: Colors.blue,
-                  width: 3,
-                )
-              ),
+              
               margin: EdgeInsets.all(10),
               padding: EdgeInsets.all(10),
               child: Center(
@@ -57,6 +52,8 @@ class _TestState extends State<Test> {
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 30,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
               ),
@@ -67,7 +64,7 @@ class _TestState extends State<Test> {
             child: Column(
               children: <Widget>[
                 Expanded(child: answerButton(random)),
-                Expanded(child: answerButton(1-random)),
+                Expanded(child: answerButton(1 - random)),
               ],
             ),
           ),
@@ -87,7 +84,7 @@ class _TestState extends State<Test> {
 
     return Padding(
       padding: EdgeInsets.all(10),
-          child: InkWell(
+      child: InkWell(
         onTap: () {
           score[widget.questions[idx]['type']][position]++;
 
@@ -103,6 +100,7 @@ class _TestState extends State<Test> {
           }
         },
         child: answerBox(widget.questions[idx][whichAnswer]),
+        borderRadius: BorderRadius.all(Radius.circular(20)),
       ),
     );
   }
@@ -111,18 +109,17 @@ class _TestState extends State<Test> {
     return Container(
       padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
-                border: Border.all(
-                  color: Colors.purple,
-                  width: 3,
-                )
-              ),
+        border: Border.all(
+          color: Colors.white,
+          width: 3,
+        ),
+        borderRadius: BorderRadius.all(Radius.circular(20)),
+      ),
       child: Center(
         child: Text(
           answer,
           textAlign: TextAlign.center,
-          style: TextStyle(
-            fontSize: 25,
-          ),
+          style: TextStyle(fontSize: 25, color: Colors.white),
         ),
       ),
     );

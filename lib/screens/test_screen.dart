@@ -11,8 +11,21 @@ class TestScreen extends StatelessWidget {
     final bool isFullTest = ModalRoute.of(context).settings.arguments;
     final questions = chooseQuestions(isFullTest);
 
-    return Scaffold(
-      body: Test(questions, isFullTest),
+    return Container(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+            begin: Alignment.topRight,
+            end: Alignment.bottomLeft,
+            stops: [0.2, 0.7],
+            colors: [
+              Colors.teal,
+              Colors.green,
+            ]),
+      ),
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        body: Test(questions, isFullTest),
+      ),
     );
   }
 }
@@ -42,7 +55,7 @@ List chooseQuestions(bool isFullTest) {
   indices.shuffle();
 
   final questions =
-      List.generate(isFullTest ? 74 : 20, (i) => testdata[indices[i]]);
+      List.generate(isFullTest ? 74 : 20, (i) => TESTDATA[indices[i]]);
 
   return questions;
 }

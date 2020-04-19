@@ -1,4 +1,4 @@
-const testdata = [
+const TESTDATA = [
   {
     "type": 0,
     "question": "Do new interactions or interactions with new people",
